@@ -1,0 +1,11 @@
+name: noise-board
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: ${COMPOSE_PROJECT_NAME:-noise-board}-frontend
+    env_file:
+      - .env
+    ports:
+      - "${FRONTEND_PORT:-20118}:80"
